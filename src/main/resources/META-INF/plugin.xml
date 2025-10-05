@@ -1,0 +1,95 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. -->
+    <id>org.uplang.intellij-up</id>
+
+    <!-- Public plugin name should be written in Title Case. -->
+    <name>UP Language Support</name>
+
+    <!-- Product and plugin compatibility requirements -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.redhat.devtools.lsp4ij</depends>
+
+    <!-- Plugin description -->
+    <description><![CDATA[
+        <h2>UP (Unified Properties) Language Support</h2>
+        <p>
+            Provides comprehensive language support for UP configuration files including:
+        </p>
+        <ul>
+            <li>Syntax highlighting with customizable color schemes</li>
+            <li>Language Server Protocol (LSP) integration</li>
+            <li>Code completion and suggestions</li>
+            <li>Go to definition and find usages</li>
+            <li>Document formatting</li>
+            <li>Error detection and validation</li>
+            <li>Quick documentation on hover</li>
+            <li>Code folding and structure view</li>
+        </ul>
+        <p>
+            Learn more about UP at <a href="https://uplang.org">uplang.org</a>
+        </p>
+    ]]></description>
+
+    <vendor email="contact@uplang.org" url="https://uplang.org">UP Language</vendor>
+
+    <!-- Extension points defined by the plugin -->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- File Type -->
+        <fileType
+            name="UP"
+            implementationClass="org.uplang.intellij.UpFileType"
+            fieldName="INSTANCE"
+            language="UP"
+            extensions="up;up-schema"/>
+
+        <!-- Language -->
+        <lang.parserDefinition
+            language="UP"
+            implementationClass="org.uplang.intellij.parser.UpParserDefinition"/>
+
+        <!-- Syntax Highlighter -->
+        <lang.syntaxHighlighterFactory
+            language="UP"
+            implementationClass="org.uplang.intellij.highlighting.UpSyntaxHighlighterFactory"/>
+
+        <!-- Color Settings -->
+        <colorSettingsPage
+            implementation="org.uplang.intellij.highlighting.UpColorSettingsPage"/>
+
+        <!-- Commenter -->
+        <lang.commenter
+            language="UP"
+            implementationClass="org.uplang.intellij.UpCommenter"/>
+
+        <!-- Brace Matcher -->
+        <lang.braceMatcher
+            language="UP"
+            implementationClass="org.uplang.intellij.UpBraceMatcher"/>
+
+        <!-- Folding Builder -->
+        <lang.foldingBuilder
+            language="UP"
+            implementationClass="org.uplang.intellij.folding.UpFoldingBuilder"/>
+
+        <!-- File Icon Provider -->
+        <iconProvider
+            implementation="org.uplang.intellij.UpIconProvider"/>
+
+        <!-- Language Server -->
+        <platform.lsp.serverSupportProvider
+            implementation="org.uplang.intellij.lsp.UpLanguageServerSupportProvider"/>
+    </extensions>
+
+    <actions>
+        <!-- Add actions here -->
+        <action
+            id="org.uplang.intellij.actions.RestartLanguageServer"
+            class="org.uplang.intellij.actions.RestartLanguageServerAction"
+            text="Restart UP Language Server"
+            description="Restart the UP language server">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
+
