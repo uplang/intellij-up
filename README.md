@@ -1,10 +1,20 @@
 # UP Language Support for IntelliJ IDEA
 
+[![CI](https://github.com/uplang/intellij-up/actions/workflows/ci.yml/badge.svg)](https://github.com/uplang/intellij-up/actions/workflows/ci.yml)
+[![JetBrains Plugin](https://img.shields.io/jetbrains/plugin/v/com.uplang.intellij-up)](https://plugins.jetbrains.com/plugin/com.uplang.intellij-up)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 <!-- Plugin description -->
 Official IntelliJ IDEA plugin for [UP (Unified Properties)](https://uplang.org) language support.
 
 Provides comprehensive IDE features including syntax highlighting, code completion, LSP integration, and more.
 <!-- Plugin description end -->
+
+**Quick Links:**
+- 📦 [Install from Marketplace](https://plugins.jetbrains.com/plugin/com.uplang.intellij-up)
+- 📖 [Documentation](#features)
+- 🔧 [Development](#development)
+- 🐛 [Report Issues](https://github.com/uplang/intellij-up/issues)
 
 ## Features
 
